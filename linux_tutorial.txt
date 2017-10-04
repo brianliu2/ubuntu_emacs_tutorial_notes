@@ -1,0 +1,292 @@
+Notes of YouTube ubuntu tutorials:
+
+0. Navigation:
+
+cd ~: back to Home directory.
+cd /path: navigate to the absolute path.
+cd ./path: navigate to the relative path under the current directory.
+cd ../: one level up.
+cd ../..: the lowest accessible level.
+
+1. command ls:
+
+ls: show files in the current directory in a compact way.
+ls -l: show files in the current directory in details.
+ls -a: show all files including hidden files in the current directory in a compact way.
+ls -la: show all files including hidden files in the current directory in details.
+
+Staring from reading Details of list of files in directory using ls command,
+an example will be:
+
+total 20
+-rw-rw-r-- 1 xinliu xinliu  135 Sep 25 16:55 linux_tutorial.txt
+-rw-rw-r-- 1 xinliu xinliu  385 Sep 25 16:53 linux_tutorial.txt~
+-rw-rw-r-- 1 xinliu xinliu  282 Sep 25 16:29 list
+drwxrwxr-x 2 xinliu xinliu 4096 Sep 24 18:38 Other
+-rw-rw-r-- 1 xinliu xinliu   49 Sep 24 18:38 Story
+
+1. The first letter/symbol of list (d or -):
+
+d: This file is a directory.
+-: This file is a concrete file.
+
+2. rwx rw- r--: privilege for three different types of user
+
+Acronym of rwx are: r=read, w=write, x=execute.
+
+rwx: permission of file owner.
+rw-: permission of group.
+r--: permission of global user.
+
+3. Acronym of the type of users:
+
+u - user (owner)
+g - group
+o - other (global user)
+
+4. If we want change the privilege of permission for one type of user:
+
+For example, we want to give write permission to global user for a file.
+we can use:
+
+chmod o+w [file name]
+
+If we want take a permission away, we can use:
+chmod o-w [file name]
+
+5. If we want to set privileges for three different type users, we usually will do:
+
+chmod 764 [file name]
+
+This mean '7' set to the privilege to owner, '6' set to the privilege to group and '4' set to the privilege to global user. As the acronym:
+
+'4' -- read
+'2' -- write
+'1' -- execute
+'0' -- no permission
+
+Hence '7' = '4'+'2'+'1' = permission to read, write and execute.
+'6' = '4'+'2' = permision to read and write.
+'4' = '4' = permission to read.
+
+6. Zip and Unzip a file:
+
+Zip:
+tar cvf  [zip_file_name] [all_files_needed]: create a tar zip file by compressing all files needed to one zip file.
+
+c: create mode; v: display process status; f: file mode
+
+Upzip:
+tar xvf  [zip_file_name] [directory]: extract a tar zip file to a directory
+
+x: extract mode; v: display process status; f: file mode
+
+
+7. Install a software:
+
+sudo apt-get install: super user do application-get install.
+
+8. User and group: if we check out the details of directory by ls command
+
+-rw-rw-r-- 1 xinliu xinliu  135 Sep 25 16:55 linux_tutorial.txt
+-rw-rw-r-- 1 xinliu xinliu  385 Sep 25 16:53 linux_tutorial.txt~
+-rw-rw-r-- 1 xinliu xinliu  282 Sep 25 16:29 list
+drwxrwxr-x 2 xinliu xinliu 4096 Sep 24 18:38 Other
+-rw-rw-r-- 1 xinliu xinliu   49 Sep 24 18:38 Story
+
+We can see there are xinliu xinliu, while:
+
+The first xinliu: owner of this file.
+The second xinliu: group of this file belonging to.
+
+9. To add a new user by using root privilege, then give the new user a default password:
+
+The first step: sudo adduser username
+The second step: sudo passwd username
+
+10. To form a group with tailored privileges:
+
+The first step: create a group with name [group_name]
+sudo groupadd group_name
+
+The second step: add user with name [user_name]  to the group created.
+sudo usermod -a -G user_name
+
+-a: add/append
+-G: add the user to the new group, but if the user is already in an existing group, then we 'paste' this user and add to the new group. Now this user belongs to two groups.
+-g: add the user to the new group, and if the user is already in an existing group, then we remove this user from the existing group and keep this user being belonged to only one group.
+
+11. Delete a user:
+
+sudo userdel user_name
+
+12. Check all processes running on linux:
+
+ps -- list all processes running, all results returned are the programs that we start and control manually.
+ps ax -- list all processes including all hidden processes running
+
+The following is the results by typing ps in terminal:
+
+  PID TTY          TIME CMD
+ 1764 pts/17   00:00:00 bash
+ 1872 pts/17   00:00:00 ps
+
+PID -- Process ID.
+TTY -- Terminal where the process is running from.
+TIME -- CPU time that this process took up, time-consuming process will have larger value on TIME.
+CMD -- The name of process.
+
+When the user executes a process/program on Terminal, the user will not have the control of Terminal and lose the accessibility of Terminal until the process/program is end or interrupt the program by using control+c.
+
+13. Run the program at the background and without losing control of Terminal:
+
+Instead to run program directly typing in the name, we can type
+
+[program name] & -- run the program in background without losing the control of Terminal.
+
+14. If we want to bring the program running background to the front end of Terminal (Then we can use control+c to interrupt the program, etc):
+
+we type: fg %[job number of program]
+
+Here, the job number of program can be retrieved by typing command -- jobs -- in the terminal.
+
+15. To freee/kill a process/program running in background:
+
+freeze -- kill -STOP [ID of program]
+kill   -- kill [ID of program]
+
+Once we freeze the program and if we want to unfreeze the program, we can:
+
+unfreeze -- kill -CONT [ID of program]
+
+Here, the kill [ID of program] is equivalent to control+c
+the kill - STOP [ID of program] is equivalent to control+z, and if we use control+z to freeze the program, we can use fg %[job number of program] to unfreeze the program. Note that [job number of program] is the digit displayed in the front of job ID once the user types jobs to check the status.
+
+16. Switch user:
+
+su [user name A]+: switch the current user to user A.
+sudo su: switch user to root user (super user).
+
+if we want to switch back to normal user after using sudo su, we can
+su xinliu: switch root user to user xinliu.
+
+17. Change ownership of a file:
+
+sudo chown user/group file_name
+
+if we want to change ownership of all files in a directory, we could use
+
+sudo chown -R user:group file_name
+
+18. Change permission/privilege of file:
+
+As aforementioned, sudo chmod 764 file_name
+
+19. find files with certain naming pattern through a certain directory:
+
+(Notice -- this is case sensitive)
+
+find directory -type f -name "file_name.*"
+(Example: find ./find_command_tutorial -type f -name "test_*")
+
+or
+
+find directory -type f -name "*.file_type"
+(Example: find ./find_command_tutorial -type f -name "*.txt")
+
+Ignore case sensitivity:
+
+find directory -type -iname "name_want_to_find"
+
+(Example: find ./find_command_tutorial -type f -iname "test_*.txt")
+
+Or search files over their privilege of permission:
+find directory -type f -perm [664]
+
+Or search files conditioning on size of file:
+find directory -size [size]
+(Example: find ./find_command_tutorial -size -1M)
+
+Or search files excluding the searching conditions:
+find directory -type f -not -iname "[*.file_type]"
+(Example: find ./find_command_tutorial -type f -not -iname "*.txt")
+
+Or when you search over a directory which might have offspring directory, and you don't want to search over all offspring directories or certain depths of offspring directories, you can use:
+
+find directory -maxdepth 1 -type f -iname "[name_type]"
+(Example: find /etc -maxdepth 1 -type f -iname "*.conf")
+
+20. Compare command grep:
+
+syntax:
+
+grep [content looking for] [file looking for content]
+
+(example 1): grep lst ./find_command_tutorial/test_3.py
+(example 2): grep __main__ ./find_command_tutorial/test_*
+
+syntax: (case insensitive)
+
+grep -i [content looking for] [files looking for content]
+
+(example 3): grep -i __main__ ./find_command_tutorial/*
+
+syntax: (give the line number of matches)
+
+grep -n -i [content looking for] [files looking for]
+(example 4): grep -i __main__ ./find_command_tutorial/*
+
+21. Use find command with grep command:
+This is really important, because we can specify the type of files that we want to compare, then compare the targeted commands over those type-matched files.
+
+syntax: find directory -type f -iname ["type of files"] -exec grep -i -n ["targeted contents"] {} +
+
+example: find . -type f -iname "*.py" -exec grep -i -n "__main__" {} +
+example: find . -type f -size -10k -iname "*.py" -exec grep -i -n "__main" {} +
+
+If we want to write the results returned from find+grep to a file, we can then use the command:
+
+find directory -type f -iname ["type of files"] -exec -grep -i -n ["targeted command"] {} + > [file_name_to_write]
+
+If we want to write the results returned from find+grep to a file, also display the results on the screen, then we can:
+
+find directory -type f -iname ["type of files"] -exec grep -i -n ["targeted command"] {} + | tee [file_name_to_write]
+
+22. Process (applications are running):
+
+To check the status of processes running real-time using command: top
+To check the status of processes run at the moment that command typed: ps aux
+
+To check the process ID of a specific instance: pgrep [process_name]
+example: pgrep chrome
+
+To kill one specific instance (open a few instances of one application):
+command: kill -9 [process_ID]
+To kill all instances of one application:
+command: killall [process_name]
+
+23. To check whether a software is available on ubuntu:
+
+apt-cache policy [software_name]
+
+24. Git - version control
+
+1.> build the python project on local machine.
+2.> git init: initialize a git repository from the local machine terminal (we need to navigate to the project directory first).
+3.> git remote add original [url of the repository you want to pull]: Localize repository where remote origin is. This command effectively tells the local machine what is the url of origin repository that we want to work with.
+4.> git config --global user.name ["user_name"]: config the user account of github.
+5.> git config --global user.email ["user_email"]: config the email bound to the user account of github.
+6.> git pull origin [branch_name]: we first pull files from branch from origin remote repository to local machine. It effectively synchronises files in the specific branch of origin remote repository. Or can be interpreted as typing in command ls /original/
+(example: after we type git pull origin master (which only README.md exists in the origin remote repository), the file (README.md) will be pull to the local machine.)
+7.> git branch --set-upstream-to=origin/master: after being aware the local machine that what branch of origin remote repository we might be able to workin, then we can set the upstream repository to this branch, interpreted as navigate to the targeted directory we want to work in. Or can be interpreted as typing in command cd origin_repository/branch.
+8.> Edit one of local files of python project, e.g. README.md
+
+In order to push the changes in the codes of project to the git server, we need to do:
+
+9.> git add [file_name]: we specify one specific file that we changed/edited to the git server.
+9.> git add -A: we specify all files that were changed/edited to the git server.
+10.> git commit -m ["info_changed_made"]: commit the changed we made, and this information will be displayed right after the file name on repository.
+11.> git push: When you've setup the upstream, this command will confirm all actions and execute.
+11.> git push origin [branch_name]: When you've not setup the upstream, this command will specific the branch that you want to push the change, then take the action.
+12.> git rm -r [directory_name]: remove all files in the directory.
+

@@ -1,0 +1,82 @@
+C-: control key
+M-: "Meta" key -- <ESC> once and release OR <alt> press and hold
+
+===   basic functions   ===
+C-g: Quit
+C-x C-c: Exit emacs
+C-x C-f: load a file, if not existed, create a file
+C-x k: kill the buffer, not delete but get rid of the window that was editing.
+
+===   move forward / backward   ===
+C-f: move forward one character, equivalent to right arrow.
+C-b: move backward one character.
+M-f: move forward one word.
+M-b: move backward one word.
+
+===   delete / undo   ===
+C-d: delete a character.
+M-d: delete a word.
+C-_: Undo.
+
+===   advanced move forward / backward   ===
+C-p: previous line / up.
+C-n: next line / down.
+C-a: move to the beginning of the line.
+C-e: move to the end of the line.
+M-<: move to the beginning of the buffer.
+M->: move to the end of the buffer.
+
+===   page down / up / recenter   ===
+C-v: page down.
+M-v: page up.
+C-l: recenter cursor in window.
+
+=== split / unsplit / merge windows   ===
+C-x 2: split the window vertically.
+C-x o: switch to the other buffer window.
+C-x 3: split the window horizontally.
+C-x 1: unsplit, only keep the current buffer and remove anything else.
+C-x 0: merge the current window with the previous edited window.
+
+===   search   ===
+C-s text: search text (case insensitive).
+C-s Text: search text (case sensitive).
+C-s text/Text C-s: roll cursor to the next match result.
+
+===   cut / paste   ===
+C-space: start / toggle marking a region.
+M-w: copy.
+C-y: paste.
+C-w: cut.
+C-k: cut from the current cursor till the end of line.
+
+===   replace   ===
+replace will only be executed from where cursor is, if cursor is at the end of buffer, nothing will be replaced even if there will be matches.
+M-%: replace [original target text] with [new text], then press <y> to confirm the replace, <n> to cancel.
+M-x query-replace: The same function above.
+M-x replace-string: replace all matches with new text without asking confirmation.
+
+===   spell check   ===
+M-$: spell checking, you need to select the word/line/paragraph want to perform spell check.
+M-x flyspell-mode: spell checking on-the-fly.
+C-space (selected region) M-x ispell-region: check the spell of selected region.
+M-x ispell-buffer: check the spell of entire buffer.
+
+****************************   Advanced emacs tutorial --- part 2   ***************************
+
+===   activate the direct mode   ===
+C-x C-f: without typing in the name of file, type <enter> to enter the direct mode.
+
+===   within the direct mode   ===
+d: mark target files/directories to execute operations.
+x: delete the marked files/directories.
++: create a sub-directory.
+cursor to target file/directory and press <enter>: enter the directory or open a file.
+C-x 2 C-x b: split the current window and turn one of buffer into direct mode window.
+g: updated the information of directory in the direct mode.
+
+===   open a terminal   ===
+M-x shell: open a terminal in emacs, a.k.a start a bash command line.
+M-u: turn the word where cursor is at to be upper case.
+M-l: turn the word where cursor is at to be lower case.
+M-c: capitalise -- turn the first letter of the word where cursor is at to be upper case.
