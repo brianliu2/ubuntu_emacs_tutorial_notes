@@ -51,8 +51,7 @@ C-w: cut.
 C-k: cut from the current cursor till the end of line.
 
 ===   replace   ===
-replace will only be executed from where cursor is, if cursor is at the end of buffer,
-nothing will be replaced even if there will be matches.
+replace will only be executed from where cursor is, if cursor is at the end of buffer, nothing will be replaced even if there will be matches.
 M-%: replace [original target text] with [new text], then press <y> to confirm the replace, <n> to cancel.
 M-x query-replace: The same function above.
 M-x replace-string: replace all matches with new text without asking confirmation.
