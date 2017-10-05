@@ -5,6 +5,7 @@ M-: "Meta" key -- <ESC> once and release OR <alt> press and hold
 C-g: Quit
 C-x C-c: Exit emacs
 C-x C-f: load a file, if not existed, create a file
+C-x C-w: write the current buffer to a different file, aka save as.
 C-x k: kill the buffer, not delete but get rid of the window that was editing.
 
 ===   move forward / backward   ===
@@ -101,3 +102,10 @@ terminal knows where to find it.
 Also, if user compiles/runs code without specifying /home/xinliu/anaconda3/bin/python
 and run code in emacs-compile-mode, it will be error prompted. 
  
+===   speedbar   ==
+The speedbar is a mini project management widget to display what codes are available within the current directory.
+
+M-x speedbar: to activate the speedbar widget.
+
+===   search contents over all files in directory   ===
+M-x grep <enter content>: search contents of interest over all files in the current directory.
