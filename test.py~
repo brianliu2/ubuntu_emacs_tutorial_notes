@@ -1,0 +1,5 @@
+#!/bin/python
+
+import seaborn as sns
+print("seaborn is successfully loaded!")
+/home/xinliu/anaconda3/bin/python

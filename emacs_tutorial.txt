@@ -81,3 +81,23 @@ M-x shell: open a terminal in emacs, a.k.a start a bash command line.
 M-u: turn the word where cursor is at to be upper case.
 M-l: turn the word where cursor is at to be lower case.
 M-c: capitalise -- turn the first letter of the word where cursor is at to be upper case.
+
+===   emacs compile   ===
+This mode allows user compile and run code in the emacs.
+
+M-x compile: activate the emacs compile mode and then type directory/file_name
+
+(Notice): There are two ways to compile and run program in emacs:
+1>. open a shell(aka terminal), and python directory/file_name.py
+2>. Run in emacs compile mode. In order to do so, in the code, user has to specify
+where to find the interpreter of code, e.g. in my case, in the beginning of code, I specify as:
+#!/home/xinliu/anaconda3/bin/python
+This tells emacs to go to directory /home/xinliu/anaconda3/bin/python to get the python interpreter.
+
+However, if user compiles/run code by using the first way, one doesn't need to specify
+the interpreter for python code, because it is added to the environmental path and hence
+terminal knows where to find it.
+
+Also, if user compiles/runs code without specifying /home/xinliu/anaconda3/bin/python
+and run code in emacs-compile-mode, it will be error prompted. 
+ 
