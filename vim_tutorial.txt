@@ -27,18 +27,20 @@ This is the record of the tutorials for Vim on YouTue
 18. B: move backward to the beginning of the previous word (split by a space).
 19. e: move forward to the end of the next word.
 20. E: move forward to the end of the next WORD.
+21. gg: move to the top of buffer.
+22. G: move to the bottom of buffer.
 
 -------- Searching --------
-22. /+<content>: search forward for the content. Enter+n gets the next match. Enter+N gets the previous match.
-23. /+\<content>: search forward for the content with case-insensitive.
-23. ?+<content>: search backward for content. Enter+n get the previous match. Enter+N gets the previous match.
-24. ?+\<content>: search backwared for content with case-insensitive.
+23. /+<content>: search forward for the content. Enter+n gets the next match. Enter+N gets the previous match.
+24. /+\<content>: search forward for the content with case-insensitive.
+25. ?+<content>: search backward for content. Enter+n get the previous match. Enter+N gets the previous match.
+26. ?+\<content>: search backwared for content with case-insensitive.
 
 -------- Copy/Paste/Undo -------
-25. Undo: U
-26. Redo: Ctrl+R
-27. Copy/Yank: y
-28. paste: p -- paste to the end of cursor.
-29. paste: P -- paste to the beginning of cursor.
-30. v: mark activated. type v to mark deactivate.
+27. Undo: U
+28. Redo: Ctrl+R
+29. Copy/Yank: y
+30. paste: p -- paste to the end of cursor.
+31. paste: P -- paste to the beginning of cursor.
+32. v: mark activated. type v to mark deactivate.
 
