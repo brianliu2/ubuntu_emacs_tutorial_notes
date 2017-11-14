@@ -1,0 +1,44 @@
+This is the record of the tutorials for Vim on YouTue
+
+***** ---- first tutorial video ---- ****
+
+--------- General operations about insert mode ----------
+1. i: enter the Insert mode.
+2. I: enter the Insert mode from the first non-blank place.
+3. s: delete the content at the cursor and start the insert mode right away.
+4. S: delete the line and start to insert at the same line.
+5. a: start to insert the content after the cursor.
+6. A: start to insert the content at the end of the line.
+7. o: start to insert the content on the next line.
+8. O: start to insert the content on the above line.
+9. C: delete from cursor to the end of line, then start the insert mode.
+
+--------- Escape the Insert mode to Normal mode ---------
+10. esc/control+[: escape from Insert mode to the normal model.
+
+--------- (In normal mode) Move up/down/left/right/word-wise -------
+11. j: move one line down.
+12. k: move one line up.
+13. h: move cursor left.
+14. l: move cursor right.
+15. w: move forward to the beginning of next word (the non-character will count). 
+16. W: move forward the the beinning of next WORD (split by a space).
+17. b: move backward to the beginning of the previous word (the non-character will count).
+18. B: move backward to the beginning of the previous word (split by a space).
+19. e: move forward to the end of the next word.
+20. E: move forward to the end of the next WORD.
+
+-------- Searching --------
+22. /+<content>: search forward for the content. Enter+n gets the next match. Enter+N gets the previous match.
+23. /+\<content>: search forward for the content with case-insensitive.
+23. ?+<content>: search backward for content. Enter+n get the previous match. Enter+N gets the previous match.
+24. ?+\<content>: search backwared for content with case-insensitive.
+
+-------- Copy/Paste/Undo -------
+25. Undo: U
+26. Redo: Ctrl+R
+27. Copy/Yank: y
+28. paste: p -- paste to the end of cursor.
+29. paste: P -- paste to the beginning of cursor.
+30. v: mark activated. type v to mark deactivate.
+
