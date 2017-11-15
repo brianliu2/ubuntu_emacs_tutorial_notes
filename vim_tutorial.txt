@@ -1,6 +1,15 @@
 This is the record of the tutorials for Vim on YouTue
 
 ***** ---- first tutorial video ---- ****
+Three modes of vim: Insert, Normal and Command.
+
+Insert -> Normal: ESC/Ctrl+[
+Normal -> Insert: iIsSaAoOC
+Insert -> Command: (Insert -> Normal -> Command): Esc/Ctrl+[ + :
+Normal -> Command: :
+Command -> Normal: Enter
+
+Insert mode should only be used for insert, should not be used for navigation.
 
 --------- General operations about insert mode ----------
 1. i: enter the Insert mode.
@@ -36,11 +45,43 @@ This is the record of the tutorials for Vim on YouTue
 25. ?+<content>: search backward for content. Enter+n get the previous match. Enter+N gets the previous match.
 26. ?+\<content>: search backwared for content with case-insensitive.
 
--------- Copy/Paste/Undo -------
+-------- Copy/Paste/Undo/delete -------
 27. Undo: U
 28. Redo: Ctrl+R
 29. Copy/Yank: y
+30. Copy/Yank the whole line: yy
+31. delete the whole line: dd
+32. delete the certain word: v + select the target + dd
 30. paste: p -- paste to the end of cursor.
 31. paste: P -- paste to the beginning of cursor.
 32. v: mark activated. type v to mark deactivate.
+
+------------------ General lines used in Command mode -----------------
+33. :q    -- quit.
+34. :w    -- save file.
+35. :q!   -- quit without saving file.
+36. i     -- go to the insert mode.
+37. <ESC> -- go to the command mode.
+38. :set nu -- set the line numbers of contents.
+39. :set nonu -- cancel the line numbers of contents.
+
+----------------- (In command mode) substitute/replace content -------------------
+40. :s/old_word/new_word/ -- replace the current old_word with the new_word (case sensitive).
+41. :s/old_word/new_word/g -- replace the current old_word with the new_word through the whole line (case sensitive).
+42. :%s/old_word/new_word/g -- replace the current old_word with the new_word through out the whole page.
+43. 
+
+---------------- (In command mode) open/switch/check buffer ---------------------
+44. :edit dir/file -- create a buffer with opening the file.
+45. :ls -- check how many windows are opened.
+46. :b <num> -- switch to the window with labelled as <num>.
+45. :split dir/file_2 -- split the window to multiple windows and open the file_2 parallel with file in horizontally.
+47. :vsplit dir/file_2-- split the window to multiple windows and open the file_2 parallel with file in vertical.
+46. ctrl+w+w -- switch between windows.
+47. ctrl+w+H -- split the windows in horizontal. If there are windows placed horizontally, then ctrl+w+L to switch right-to-left.
+48. ctrl+w+L -- split the windows in horizontal. If there are windows placed horizontally, then ctrl+w+H to switch right-to-left.
+48. ctrl+w+J -- split the windows in vertical. If there are windows placed vertically, then ctrl+w+K to switchup-side-down.
+48. ctrl+w+K -- split the windows in vertical. If there are windows placed vertically, then ctrl+w+J to switchup-side-down.
+49. :only -- only keep the current window.
+
 
